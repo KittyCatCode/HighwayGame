@@ -10,5 +10,6 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameViewController : UIViewController
+@property bool isInGame;
 
 @end

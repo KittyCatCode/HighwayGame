@@ -7,16 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03AC4FB1D1475790018042E /* plus-4-512.png in Resources */ = {isa = PBXBuildFile; fileRef = A03AC4FA1D1475790018042E /* plus-4-512.png */; };
 		A06E5D6B1D0B7AAC0044D105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D6A1D0B7AAC0044D105 /* main.m */; };
 		A06E5D6E1D0B7AAC0044D105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D6D1D0B7AAC0044D105 /* AppDelegate.m */; };
 		A06E5D711D0B7AAC0044D105 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D701D0B7AAC0044D105 /* GameScene.m */; };
-		A06E5D731D0B7AAC0044D105 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A06E5D721D0B7AAC0044D105 /* GameScene.sks */; };
 		A06E5D761D0B7AAC0044D105 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D751D0B7AAC0044D105 /* GameViewController.m */; };
 		A06E5D791D0B7AAC0044D105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06E5D771D0B7AAC0044D105 /* Main.storyboard */; };
 		A06E5D7B1D0B7AAC0044D105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E5D7A1D0B7AAC0044D105 /* Assets.xcassets */; };
 		A06E5D7E1D0B7AAC0044D105 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06E5D7C1D0B7AAC0044D105 /* LaunchScreen.storyboard */; };
 		A06E5D891D0B7AAC0044D105 /* HighwayGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D881D0B7AAC0044D105 /* HighwayGameTests.m */; };
 		A06E5D941D0B7AAC0044D105 /* HighwayGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5D931D0B7AAC0044D105 /* HighwayGameUITests.m */; };
+		A06E5DA31D0BC10C0044D105 /* HighwayNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DA21D0BC10C0044D105 /* HighwayNode.m */; };
+		A06E5DA81D0C70EA0044D105 /* nodehelper.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DA41D0C70EA0044D105 /* nodehelper.png */; };
+		A06E5DA91D0C70EA0044D105 /* nodehelperselected.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DA51D0C70EA0044D105 /* nodehelperselected.png */; };
+		A06E5DAA1D0C70EA0044D105 /* noderequired.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DA61D0C70EA0044D105 /* noderequired.png */; };
+		A06E5DAB1D0C70EA0044D105 /* noderequiredhighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DA71D0C70EA0044D105 /* noderequiredhighlight.png */; };
+		A06E5DAE1D0CAA4D0044D105 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DAD1D0CAA4D0044D105 /* TextureLoader.m */; };
+		A06E5DB11D0DA9DE0044D105 /* connectmode.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DAF1D0DA9DE0044D105 /* connectmode.png */; };
+		A06E5DB21D0DA9DE0044D105 /* movemode.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DB01D0DA9DE0044D105 /* movemode.png */; };
+		A06E5DB41D0DB70A0044D105 /* removenode.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DB31D0DB70A0044D105 /* removenode.png */; };
+		A06E5DB61D0DB7140044D105 /* createnode.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DB51D0DB7140044D105 /* createnode.png */; };
+		A06E5DB91D0DB73E0044D105 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DB81D0DB73E0044D105 /* MainScene.m */; };
+		A06E5DC31D0E24BD0044D105 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBA1D0E24BD0044D105 /* a.png */; };
+		A06E5DC41D0E24BD0044D105 /* e.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBB1D0E24BD0044D105 /* e.png */; };
+		A06E5DC51D0E24BD0044D105 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBC1D0E24BD0044D105 /* g.png */; };
+		A06E5DC61D0E24BD0044D105 /* h.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBD1D0E24BD0044D105 /* h.png */; };
+		A06E5DC71D0E24BD0044D105 /* i.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBE1D0E24BD0044D105 /* i.png */; };
+		A06E5DC81D0E24BD0044D105 /* m.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DBF1D0E24BD0044D105 /* m.png */; };
+		A06E5DC91D0E24BD0044D105 /* t.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DC01D0E24BD0044D105 /* t.png */; };
+		A06E5DCA1D0E24BD0044D105 /* w.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DC11D0E24BD0044D105 /* w.png */; };
+		A06E5DCB1D0E24BD0044D105 /* y.png in Resources */ = {isa = PBXBuildFile; fileRef = A06E5DC21D0E24BD0044D105 /* y.png */; };
+		A06E5DD11D10A2610044D105 /* NodeConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DD01D10A2610044D105 /* NodeConnection.m */; };
+		A06E5DD41D10ECA90044D105 /* SharedUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DD31D10ECA90044D105 /* SharedUtilities.m */; };
+		A06E5DD71D122D050044D105 /* SelectGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DD61D122D050044D105 /* SelectGameViewController.m */; };
+		A06E5DDD1D12D7ED0044D105 /* SavedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E5DDC1D12D7ED0044D105 /* SavedGame.m */; };
+		C0D23FA91D5771BC00609A4F /* SelectNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D23FA81D5771BC00609A4F /* SelectNameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A03AC4FA1D1475790018042E /* plus-4-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-4-512.png"; sourceTree = "<group>"; };
 		A06E5D661D0B7AAC0044D105 /* HighwayGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighwayGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06E5D6A1D0B7AAC0044D105 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A06E5D6C1D0B7AAC0044D105 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A06E5D6D1D0B7AAC0044D105 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A06E5D6F1D0B7AAC0044D105 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		A06E5D701D0B7AAC0044D105 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		A06E5D721D0B7AAC0044D105 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A06E5D741D0B7AAC0044D105 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		A06E5D751D0B7AAC0044D105 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		A06E5D781D0B7AAC0044D105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +81,39 @@
 		A06E5D8F1D0B7AAC0044D105 /* HighwayGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HighwayGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06E5D931D0B7AAC0044D105 /* HighwayGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighwayGameUITests.m; sourceTree = "<group>"; };
 		A06E5D951D0B7AAC0044D105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A06E5DA11D0BC10C0044D105 /* HighwayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighwayNode.h; sourceTree = "<group>"; };
+		A06E5DA21D0BC10C0044D105 /* HighwayNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighwayNode.m; sourceTree = "<group>"; };
+		A06E5DA41D0C70EA0044D105 /* nodehelper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nodehelper.png; sourceTree = "<group>"; };
+		A06E5DA51D0C70EA0044D105 /* nodehelperselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nodehelperselected.png; sourceTree = "<group>"; };
+		A06E5DA61D0C70EA0044D105 /* noderequired.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noderequired.png; sourceTree = "<group>"; };
+		A06E5DA71D0C70EA0044D105 /* noderequiredhighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noderequiredhighlight.png; sourceTree = "<group>"; };
+		A06E5DAC1D0CAA4D0044D105 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		A06E5DAD1D0CAA4D0044D105 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
+		A06E5DAF1D0DA9DE0044D105 /* connectmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connectmode.png; sourceTree = "<group>"; };
+		A06E5DB01D0DA9DE0044D105 /* movemode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movemode.png; sourceTree = "<group>"; };
+		A06E5DB31D0DB70A0044D105 /* removenode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removenode.png; sourceTree = "<group>"; };
+		A06E5DB51D0DB7140044D105 /* createnode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createnode.png; sourceTree = "<group>"; };
+		A06E5DB71D0DB73E0044D105 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		A06E5DB81D0DB73E0044D105 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; wrapsLines = 0; };
+		A06E5DBA1D0E24BD0044D105 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
+		A06E5DBB1D0E24BD0044D105 /* e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e.png; sourceTree = "<group>"; };
+		A06E5DBC1D0E24BD0044D105 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
+		A06E5DBD1D0E24BD0044D105 /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h.png; sourceTree = "<group>"; };
+		A06E5DBE1D0E24BD0044D105 /* i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i.png; sourceTree = "<group>"; };
+		A06E5DBF1D0E24BD0044D105 /* m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m.png; sourceTree = "<group>"; };
+		A06E5DC01D0E24BD0044D105 /* t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t.png; sourceTree = "<group>"; };
+		A06E5DC11D0E24BD0044D105 /* w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w.png; sourceTree = "<group>"; };
+		A06E5DC21D0E24BD0044D105 /* y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = y.png; sourceTree = "<group>"; };
+		A06E5DCF1D10A2610044D105 /* NodeConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeConnection.h; path = ../NodeConnection.h; sourceTree = "<group>"; };
+		A06E5DD01D10A2610044D105 /* NodeConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NodeConnection.m; path = ../NodeConnection.m; sourceTree = "<group>"; };
+		A06E5DD21D10ECA90044D105 /* SharedUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedUtilities.h; sourceTree = "<group>"; };
+		A06E5DD31D10ECA90044D105 /* SharedUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedUtilities.m; sourceTree = "<group>"; };
+		A06E5DD51D122D050044D105 /* SelectGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGameViewController.h; sourceTree = "<group>"; };
+		A06E5DD61D122D050044D105 /* SelectGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGameViewController.m; sourceTree = "<group>"; };
+		A06E5DDB1D12D7ED0044D105 /* SavedGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGame.h; sourceTree = "<group>"; };
+		A06E5DDC1D12D7ED0044D105 /* SavedGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGame.m; sourceTree = "<group>"; };
+		C0D23FA71D5771BC00609A4F /* SelectNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectNameViewController.h; sourceTree = "<group>"; };
+		C0D23FA81D5771BC00609A4F /* SelectNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectNameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +164,32 @@
 		A06E5D681D0B7AAC0044D105 /* HighwayGame */ = {
 			isa = PBXGroup;
 			children = (
+				A03AC4FA1D1475790018042E /* plus-4-512.png */,
+				A06E5DCF1D10A2610044D105 /* NodeConnection.h */,
+				A06E5DDC1D12D7ED0044D105 /* SavedGame.m */,
+				A06E5DDB1D12D7ED0044D105 /* SavedGame.h */,
+				A06E5DD01D10A2610044D105 /* NodeConnection.m */,
+				A06E5DBA1D0E24BD0044D105 /* a.png */,
+				A06E5DBB1D0E24BD0044D105 /* e.png */,
+				A06E5DBC1D0E24BD0044D105 /* g.png */,
+				A06E5DBD1D0E24BD0044D105 /* h.png */,
+				A06E5DBE1D0E24BD0044D105 /* i.png */,
+				A06E5DBF1D0E24BD0044D105 /* m.png */,
+				A06E5DC01D0E24BD0044D105 /* t.png */,
+				A06E5DC11D0E24BD0044D105 /* w.png */,
+				A06E5DC21D0E24BD0044D105 /* y.png */,
+				A06E5DB51D0DB7140044D105 /* createnode.png */,
+				A06E5DB31D0DB70A0044D105 /* removenode.png */,
+				A06E5DAF1D0DA9DE0044D105 /* connectmode.png */,
+				A06E5DB01D0DA9DE0044D105 /* movemode.png */,
+				A06E5DA41D0C70EA0044D105 /* nodehelper.png */,
+				A06E5DA51D0C70EA0044D105 /* nodehelperselected.png */,
+				A06E5DA61D0C70EA0044D105 /* noderequired.png */,
+				A06E5DA71D0C70EA0044D105 /* noderequiredhighlight.png */,
 				A06E5D6C1D0B7AAC0044D105 /* AppDelegate.h */,
 				A06E5D6D1D0B7AAC0044D105 /* AppDelegate.m */,
 				A06E5D6F1D0B7AAC0044D105 /* GameScene.h */,
 				A06E5D701D0B7AAC0044D105 /* GameScene.m */,
-				A06E5D721D0B7AAC0044D105 /* GameScene.sks */,
 				A06E5D741D0B7AAC0044D105 /* GameViewController.h */,
 				A06E5D751D0B7AAC0044D105 /* GameViewController.m */,
 				A06E5D771D0B7AAC0044D105 /* Main.storyboard */,
@@ -118,6 +197,18 @@
 				A06E5D7C1D0B7AAC0044D105 /* LaunchScreen.storyboard */,
 				A06E5D7F1D0B7AAC0044D105 /* Info.plist */,
 				A06E5D691D0B7AAC0044D105 /* Supporting Files */,
+				A06E5DA11D0BC10C0044D105 /* HighwayNode.h */,
+				A06E5DA21D0BC10C0044D105 /* HighwayNode.m */,
+				A06E5DAC1D0CAA4D0044D105 /* TextureLoader.h */,
+				A06E5DAD1D0CAA4D0044D105 /* TextureLoader.m */,
+				A06E5DB71D0DB73E0044D105 /* MainScene.h */,
+				A06E5DB81D0DB73E0044D105 /* MainScene.m */,
+				A06E5DD51D122D050044D105 /* SelectGameViewController.h */,
+				A06E5DD61D122D050044D105 /* SelectGameViewController.m */,
+				A06E5DD21D10ECA90044D105 /* SharedUtilities.h */,
+				A06E5DD31D10ECA90044D105 /* SharedUtilities.m */,
+				C0D23FA71D5771BC00609A4F /* SelectNameViewController.h */,
+				C0D23FA81D5771BC00609A4F /* SelectNameViewController.m */,
 			);
 			path = HighwayGame;
 			sourceTree = "<group>";
@@ -215,6 +306,7 @@
 				TargetAttributes = {
 					A06E5D651D0B7AAC0044D105 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = KKYXPPH24T;
 					};
 					A06E5D831D0B7AAC0044D105 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -251,10 +343,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A06E5D731D0B7AAC0044D105 /* GameScene.sks in Resources */,
+				A06E5DAA1D0C70EA0044D105 /* noderequired.png in Resources */,
+				A06E5DC71D0E24BD0044D105 /* i.png in Resources */,
+				A06E5DB11D0DA9DE0044D105 /* connectmode.png in Resources */,
+				A03AC4FB1D1475790018042E /* plus-4-512.png in Resources */,
+				A06E5DA91D0C70EA0044D105 /* nodehelperselected.png in Resources */,
+				A06E5DB61D0DB7140044D105 /* createnode.png in Resources */,
+				A06E5DCB1D0E24BD0044D105 /* y.png in Resources */,
 				A06E5D7E1D0B7AAC0044D105 /* LaunchScreen.storyboard in Resources */,
+				A06E5DC91D0E24BD0044D105 /* t.png in Resources */,
+				A06E5DC41D0E24BD0044D105 /* e.png in Resources */,
+				A06E5DAB1D0C70EA0044D105 /* noderequiredhighlight.png in Resources */,
+				A06E5DC51D0E24BD0044D105 /* g.png in Resources */,
 				A06E5D7B1D0B7AAC0044D105 /* Assets.xcassets in Resources */,
+				A06E5DC81D0E24BD0044D105 /* m.png in Resources */,
+				A06E5DC61D0E24BD0044D105 /* h.png in Resources */,
+				A06E5DB21D0DA9DE0044D105 /* movemode.png in Resources */,
 				A06E5D791D0B7AAC0044D105 /* Main.storyboard in Resources */,
+				A06E5DC31D0E24BD0044D105 /* a.png in Resources */,
+				A06E5DA81D0C70EA0044D105 /* nodehelper.png in Resources */,
+				A06E5DCA1D0E24BD0044D105 /* w.png in Resources */,
+				A06E5DB41D0DB70A0044D105 /* removenode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +389,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06E5D761D0B7AAC0044D105 /* GameViewController.m in Sources */,
+				A06E5DD11D10A2610044D105 /* NodeConnection.m in Sources */,
+				A06E5DD71D122D050044D105 /* SelectGameViewController.m in Sources */,
+				A06E5DA31D0BC10C0044D105 /* HighwayNode.m in Sources */,
 				A06E5D6E1D0B7AAC0044D105 /* AppDelegate.m in Sources */,
+				C0D23FA91D5771BC00609A4F /* SelectNameViewController.m in Sources */,
+				A06E5DB91D0DB73E0044D105 /* MainScene.m in Sources */,
 				A06E5D711D0B7AAC0044D105 /* GameScene.m in Sources */,
+				A06E5DDD1D12D7ED0044D105 /* SavedGame.m in Sources */,
+				A06E5DAE1D0CAA4D0044D105 /* TextureLoader.m in Sources */,
 				A06E5D6B1D0B7AAC0044D105 /* main.m in Sources */,
+				A06E5DD41D10ECA90044D105 /* SharedUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +542,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HighwayGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gabrielpulido.HighwayGame;
+				PRODUCT_BUNDLE_IDENTIFIER = pulido.gabriel.HighwayGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -436,10 +557,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HighwayGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gabrielpulido.HighwayGame;
+				PRODUCT_BUNDLE_IDENTIFIER = pulido.gabriel.HighwayGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -510,6 +635,7 @@
 				A06E5D9A1D0B7AAC0044D105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A06E5D9B1D0B7AAC0044D105 /* Build configuration list for PBXNativeTarget "HighwayGameTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +644,7 @@
 				A06E5D9D1D0B7AAC0044D105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A06E5D9E1D0B7AAC0044D105 /* Build configuration list for PBXNativeTarget "HighwayGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +653,7 @@
 				A06E5DA01D0B7AAC0044D105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
