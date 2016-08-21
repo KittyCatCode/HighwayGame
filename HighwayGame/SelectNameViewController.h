@@ -10,5 +10,7 @@
 
 @interface SelectNameViewController : UIViewController
 - (IBAction)save:(id)sender;
-
+- (IBAction)saveUsingDate:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textbox;
+- (void)setSavedGame:(SavedGame*)game;
 @end

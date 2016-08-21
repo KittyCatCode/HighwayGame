@@ -11,6 +11,8 @@
 #import "NodeConnection.h"
 #import "SharedUtilities.h"
 #import "SavedGame.h"
+#import "GameViewController.h"
+#import "MainScene.h"
 @interface GameScene ()
 @property SKSpriteNode* connectMode;
 @property SKSpriteNode* moveMode;
@@ -53,10 +55,9 @@
             [self.nodes addObject:randomNode];
             [self.requiredNodes addObject:randomNode];
         }
+        self.game.nodes=self.nodes;
         self.useId=(int)self.nodes.count;
-        [self updateCounter];
     } else {
-        //make self.game.nodes connected to the game's nodes even though the game uses a mutable array
         self.nodes=[NSMutableArray arrayWithArray:self.game.nodes];
         self.game.nodes=self.nodes;
         [self.nodes enumerateObjectsUsingBlock:^(HighwayNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -71,7 +72,6 @@
                 [self.requiredNodes addObject:node];
             }
         }];
-        [self updateCounter];
     }
     //Show the amazing slider.
     self.moveMode = [SKSpriteNode spriteNodeWithTexture:self.tl.moveMode];
@@ -110,18 +110,19 @@
     [self addChild: done];
     self.counter = [SKLabelNode labelNodeWithText:@"Length: 0.00 m"];
     self.counter.fontName=@"AmericanTypewriter";
-    self.counter.fontSize=10;
+    self.counter.fontSize=5;
     self.counter.fontColor=[UIColor blackColor];
-    self.counter.position=CGPointMake(self.size.width/2-self.counter.frame.size.width/2-save.frame.size.width-done.frame.size.width-20, -self.size.height/2+10);
+    self.counter.position=CGPointMake(self.size.width/2-self.counter.frame.size.width/2-save.frame.size.width-done.frame.size.width-20, -self.size.height/2+15);
     self.counter.verticalAlignmentMode=SKLabelVerticalAlignmentModeCenter;
     [self addChild:self.counter];
     self.highscorecounter = [SKLabelNode labelNodeWithText:@"Lowscore: 0.00 m"];
     self.highscorecounter.fontName=@"AmericanTypewriter";
-    self.highscorecounter.fontSize=10;
+    self.highscorecounter.fontSize=5;
     self.highscorecounter.fontColor=[UIColor blackColor];
-    self.highscorecounter.position=CGPointMake(self.size.width/2-self.highscorecounter.frame.size.width/2-save.frame.size.width-done.frame.size.width-self.counter.frame.size.width-30, -self.size.height/2+10);
+    self.highscorecounter.position=CGPointMake(self.size.width/2-self.highscorecounter.frame.size.width/2-save.frame.size.width-done.frame.size.width-20, -self.size.height/2+5);
     self.highscorecounter.verticalAlignmentMode=SKLabelVerticalAlignmentModeCenter;
     [self addChild:self.highscorecounter];
+    [self updateCounter];
 }
 -(SKNode*)buttonWithText:(NSString*)text withName:(NSString*)name withFontSize:(int)f {
     SKLabelNode* txt = [SKLabelNode labelNodeWithText:text];
@@ -136,13 +137,15 @@
     SKSpriteNode* bg = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(width+5,(txt.fontSize*2)+5)];
     bg.position=CGPointMake(0, 0);
     bg.zPosition=0;
-    bg.name=[name stringByAppendingString:@"Background"];
+    bg.name=name;
     [bg addChild:txt];
     return bg;
 }
 const int sliderPressed=0;
 const int nodePressed=1;
 const int createHelperNode=2;
+const int savePressed=3;
+const int donePressed=4;
 const int gNothing=-1;
 int gTouchesBeganIn=gNothing;
 -(void)touchesBegan:(NSSet<UITouch*> *)touches withEvent:(UIEvent *)event {
@@ -187,6 +190,40 @@ int gTouchesBeganIn=gNothing;
         self.useId++;
         hasFoundStart=true;
     }
+    if([self.startingNode.name hasPrefix:@"save"]) {
+        //mejirushi, ..., miagete hoshii
+        gTouchesBeganIn=savePressed;
+        if([self.startingNode.name isEqualToString:@"saveText"]) {
+            ((SKLabelNode*)self.startingNode).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode.parent).color=[UIColor blackColor];
+        } else {
+            ((SKLabelNode*)self.startingNode.children[0]).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode).color=[UIColor blackColor];
+        }
+        hasFoundStart=true;
+    }
+    if([self.startingNode.name hasPrefix:@"done"]) {
+        gTouchesBeganIn=donePressed;
+        if([self.startingNode.name isEqualToString:@"doneText"]) {
+            ((SKLabelNode*)self.startingNode).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode.parent).color=[UIColor blackColor];
+        } else {
+            ((SKLabelNode*)self.startingNode.children[0]).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode).color=[UIColor blackColor];
+        }
+        hasFoundStart=true;
+    }
+    if([self.startingNode.name hasPrefix:@"save"]) {
+        gTouchesBeganIn=savePressed;
+        if([self.startingNode.name isEqualToString:@"saveText"]) {
+            ((SKLabelNode*)self.startingNode).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode.parent).color=[UIColor blackColor];
+        } else {
+            ((SKLabelNode*)self.startingNode.children[0]).fontColor=[UIColor whiteColor];
+            ((SKSpriteNode*)self.startingNode).color=[UIColor blackColor];
+        }
+        hasFoundStart=true;
+    }
     if(!hasFoundStart) {
         gTouchesBeganIn=gNothing;
     }
@@ -223,6 +260,44 @@ int gTouchesBeganIn=gNothing;
         } else {
             [self.moveMode runAction:[SKAction moveBy:CGVectorMake(-40, 0) duration:0.2]];
             [self.connectMode runAction:[SKAction moveBy:CGVectorMake(-40, 0) duration:0.2]];
+        }
+    }
+    if(gTouchesBeganIn==savePressed) {
+        if([self.startingNode.name isEqualToString:@"save"]) {
+            ((SKSpriteNode*)self.startingNode).color=[UIColor whiteColor];
+            ((SKLabelNode*)self.startingNode.children[0]).fontColor=[UIColor blackColor];
+        } else {
+            ((SKLabelNode*)self.startingNode).fontColor=[UIColor blackColor];
+            ((SKSpriteNode*)self.startingNode.parent).color=[UIColor whiteColor];
+        }
+        if(([[self nodeAtPoint:[touch locationInNode:self]].name hasPrefix:@"save"])) {
+            [self saveGame];
+        }
+    }
+    if(gTouchesBeganIn==donePressed) {
+        if([self.startingNode.name isEqualToString:@"done"]) {
+            ((SKSpriteNode*)self.startingNode).color=[UIColor whiteColor];
+            ((SKLabelNode*)self.startingNode.children[0]).fontColor=[UIColor blackColor];
+        } else {
+            ((SKLabelNode*)self.startingNode).fontColor=[UIColor blackColor];
+            ((SKSpriteNode*)self.startingNode.parent).color=[UIColor whiteColor];
+        }
+        if([[self nodeAtPoint:[touch locationInNode:self]].name hasPrefix:@"done"]) {
+            if(self.game.title) {
+                [self saveGame];
+                self.c.isInGame=false;
+                MainScene* scene = [MainScene sceneWithSize:CGSizeMake(self.size.width*2, self.size.height*2)];
+                scene.tl=self.tl;
+                scene.c=self.c;
+                [self.view presentScene:scene transition:[SKTransition revealWithDirection:SKTransitionDirectionRight duration:0.1]];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save"
+                                                                message:@"You need to save first."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
         }
     }
     if(gTouchesBeganIn==nodePressed) {
@@ -281,14 +356,29 @@ int gTouchesBeganIn=gNothing;
     length+=self.inProgressConnection.size.width;
     CGFloat oldRight=self.counter.position.x+self.counter.frame.size.width/2;
     self.counter.text=[NSString stringWithFormat:@"Length: %.2f m",length];
-    self.counter.position=CGPointMake(oldRight-self.counter.frame.size.width/2, -self.size.height/2+10);
+    self.counter.position=CGPointMake(oldRight-self.counter.frame.size.width/2, self.counter.position.y);
+    oldRight=self.highscorecounter.position.x+self.highscorecounter.frame.size.width/2;
     if(((length<self.highscore)||(self.highscore==-1))&&([[self.requiredNodes firstObject] isConnectedToNodes:self.requiredNodes withArrayOfAllNodes:self.nodes])) {
         self.highscore=length;
         self.highscorecounter.text=[NSString stringWithFormat:@"Lowscore: %.2f m",length];
     }
-    self.highscorecounter.position=CGPointMake(self.counter.position.x-self.counter.frame.size.width/2-10-self.highscorecounter.frame.size.width/2, -self.size.height/2+10);
+    self.highscorecounter.position=CGPointMake(oldRight-self.highscorecounter.frame.size.width/2, self.highscorecounter.position.y);
 }
 -(CGFloat) randomFloat:(CGFloat)min max:(CGFloat) max {
     return ((arc4random()%RAND_MAX)/(RAND_MAX*1.0))*(max-min)+min;
+}
+-(void) saveGame {
+    if(self.game.title) {
+        NSString* appSupport = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject];
+        NSMutableArray<SavedGame*>* games = [NSKeyedUnarchiver unarchiveObjectWithFile:[appSupport stringByAppendingPathComponent:@"save.plist"]];
+        [games enumerateObjectsUsingBlock:^(SavedGame* game, NSUInteger idx, BOOL * _Nonnull stop) {
+            if(game.rid==self.game.rid) {
+                game.nodes=self.nodes;
+            }
+        }];
+        [NSKeyedArchiver archiveRootObject:games toFile:[appSupport stringByAppendingPathComponent:@"save.plist"]];
+    } else {
+        [self.c performSegueWithIdentifier:@"showNamer" sender:self.game];
+    }
 }
 @end

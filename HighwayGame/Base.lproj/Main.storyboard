@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -52,7 +53,43 @@
                     <view key="view" contentMode="scaleToFill" id="VL1-K5-sZK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a name for your game save!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K41-VK-2nS">
+                                <rect key="frame" x="108" y="52" width="472" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameChanged:" destination="iAe-vR-URF" eventType="editingChanged" id="jnz-cT-Rpi"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ion-Ya-1FE">
+                                <rect key="frame" x="20" y="550" width="560" height="30"/>
+                                <state key="normal" title="Use Date as Name"/>
+                                <connections>
+                                    <action selector="saveUsingDate:" destination="iAe-vR-URF" eventType="touchUpInside" id="7uN-vE-c0L"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUh-c6-Xj2">
+                                <rect key="frame" x="20" y="56" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="R9x-Ny-jLf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="aUh-c6-Xj2" secondAttribute="leading" id="7V5-RI-4gS"/>
+                            <constraint firstItem="aUh-c6-Xj2" firstAttribute="top" secondItem="NJq-aD-WMG" secondAttribute="bottom" constant="12" id="EQt-WB-kXq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ion-Ya-1FE" secondAttribute="trailing" id="J5q-1f-dQJ"/>
+                            <constraint firstItem="K41-VK-2nS" firstAttribute="leading" secondItem="aUh-c6-Xj2" secondAttribute="trailing" constant="8" id="JXZ-q8-nX4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ion-Ya-1FE" secondAttribute="leading" id="SPa-cd-jMU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K41-VK-2nS" secondAttribute="trailing" id="XSj-eu-cgc"/>
+                            <constraint firstItem="K41-VK-2nS" firstAttribute="top" secondItem="NJq-aD-WMG" secondAttribute="bottom" constant="8" id="dTd-9o-Vgx"/>
+                            <constraint firstItem="EYH-xw-9MK" firstAttribute="top" secondItem="Ion-Ya-1FE" secondAttribute="bottom" constant="20" id="oKu-gY-Gu9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Save Game" id="iT8-Ab-zDM">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="7aY-4J-pFK">
@@ -61,6 +98,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textbox" destination="K41-VK-2nS" id="r3a-wd-YwP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfD-KB-mfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

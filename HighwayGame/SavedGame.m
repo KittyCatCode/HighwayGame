@@ -12,15 +12,15 @@
 #import "SharedUtilities.h"
 @implementation SavedGame
 -(void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.nodes forKey:@"nodes"];
+    [aCoder encodeObject:self.nodes forKey:@"nodes"];//some extra data lost
     [aCoder encodeObject:self.title forKey:@"title"];
-    [aCoder encodeObject:self.subtitle forKey:@"subtitle"];
+    [aCoder encodeInteger:self.rid forKey:@"rid"];
 }
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if(self) {
         self.nodes=[aDecoder decodeObjectForKey:@"nodes"];
-        //fix the nodes!
+        //some extra data built.
         [self.nodes enumerateObjectsUsingBlock:^(HighwayNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj.intConnectedForUnserialization enumerateObjectsUsingBlock:^(NSNumber * _Nonnull iobj, NSUInteger idx, BOOL * _Nonnull stop) {
                 __block HighwayNode* asNode;
@@ -35,16 +35,16 @@
             }];
         }];
         self.title=[aDecoder decodeObjectForKey:@"title"];
-        self.subtitle=[aDecoder decodeObjectForKey:@"subtitle"];
+        self.rid=(int)[aDecoder decodeIntegerForKey:@"rid"];
     }
     return self;
 }
--(instancetype)initWithArrayOfNodes:(NSArray<HighwayNode*>*)nodes title:(NSString*)t subtitle:(NSString*)s{
+-(instancetype)initWithArrayOfNodes:(NSArray<HighwayNode*>*)nodes withTitle:(NSString*)t withRid:(int)rid{
     self = [super init];
     if(self) {
         self.nodes=nodes;
         self.title=t;
-        self.subtitle=s;
+        self.rid=rid;
     }
     return self;
 }

@@ -15,6 +15,13 @@
 
 -(void)viewDidLoad {
     NSString* appSupport = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:appSupport isDirectory:NULL]) {
+        NSError *error = nil;
+        //Create one
+        if (![[NSFileManager defaultManager] createDirectoryAtPath:appSupport withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }
     self.games=[NSKeyedUnarchiver unarchiveObjectWithFile:[appSupport stringByAppendingPathComponent:@"save.plist"]];
     if(!self.games) {self.games=[NSMutableArray new];}
     self.navigationItem.rightBarButtonItem=self.editButtonItem;
@@ -29,6 +36,7 @@
     
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row==self.games.count){return UITableViewCellEditingStyleNone;}
     if([self.games objectAtIndex:indexPath.row].nodes!=nil) {
         return UITableViewCellEditingStyleDelete;
     }
@@ -38,8 +46,13 @@
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.games removeObjectAtIndex:indexPath.row];
+        NSString* appSupport = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject];
+        [NSKeyedArchiver archiveRootObject:self.games toFile:[appSupport stringByAppendingPathComponent: @"save.plist"]];
         [tableView reloadData];
     }
+}
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden=NO;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -47,7 +60,7 @@
         //copy the data to the variables
         self.selectedGame=[self.games objectAtIndex:indexPath.row];
     } else {
-        self.selectedGame=[[SavedGame alloc] initWithArrayOfNodes:nil title:nil subtitle:nil];
+        self.selectedGame=[[SavedGame alloc] initWithArrayOfNodes:nil withTitle:nil withRid:arc4random()];
     }
     [self performSegueWithIdentifier:@"unwindToGame" sender:self];
     
@@ -62,7 +75,7 @@
         [ret detailTextLabel].text=@"A brand new game.";
     } else {
         [ret textLabel].text=[self.games objectAtIndex:indexPath.row].title;
-        [ret detailTextLabel].text=[self.games objectAtIndex:indexPath.row].subtitle;
+        [ret detailTextLabel].text=@"";
     }
     return ret;
 }

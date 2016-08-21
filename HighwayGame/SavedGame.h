@@ -11,7 +11,7 @@
 @class HighwayNode;
 @interface SavedGame : NSObject <NSCoding>
 @property NSString* title;
-@property NSString* subtitle;
 @property NSArray<HighwayNode*>* nodes;
--(instancetype)initWithArrayOfNodes:(NSArray<HighwayNode*>*)nodes title:(NSString*)t subtitle:(NSString*)s;
+@property int rid;
+-(instancetype)initWithArrayOfNodes:(NSArray<HighwayNode*>*)nodes withTitle:(NSString*)t withRid:(int)rid;
 @end

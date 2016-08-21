@@ -16,7 +16,6 @@
     __block bool ret=true;
     [array enumerateObjectsUsingBlock:^(HighwayNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ret&=[self isConnectedToNode:obj withArray:allNodes];
-        NSLog(@"%d",ret);
     }];
     return ret;
 }
@@ -71,7 +70,7 @@
     [super encodeWithCoder:aCoder];
     [aCoder encodeBool:self.isRequired forKey:@"required"];
     [aCoder encodeInteger:self.nodeId forKey:@"id"];
-    NSMutableArray<NSNumber*>* connections;
+    NSMutableArray<NSNumber*>* connections = [NSMutableArray new];
     [self.connectedNodes enumerateObjectsUsingBlock:^(NodeConnection * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [connections addObject:[NSNumber numberWithInt:obj.toNode.nodeId]];
     }];
@@ -83,6 +82,7 @@
     self.isRequired=[aDecoder decodeBoolForKey:@"required"];
     self.nodeId=(int)[aDecoder decodeIntegerForKey:@"id"];
     self.intConnectedForUnserialization=[aDecoder decodeObjectForKey:@"connected"];
+    self.connectedNodes=[NSMutableArray new];
     return self;
 }
 -(bool)removeDirectConnectionTo:(HighwayNode*)node {

@@ -12,13 +12,16 @@
 #import <SpriteKit/SpriteKit.h>
 #import "SelectGameViewController.h"
 #import "SavedGame.h"
+#import "SelectNameViewController.h"
 @interface GameViewController ()
 @property SavedGame* g;
+@property TextureLoader* l;
 @end
 @implementation GameViewController
 
 - (void)viewDidLoad
 {
+    self.l=[TextureLoader new];
     self.isInGame=false;
     [super viewDidLoad];
 
@@ -40,6 +43,11 @@
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showNamer"]) {
+        [((SelectNameViewController*)segue.destinationViewController) setSavedGame:sender];
+    } else if([segue.identifier isEqualToString:@"showSelector"]) {
+        
+    }
 }
 -(void)viewDidLayoutSubviews {
     SKView * skView = (SKView *)[self.view.subviews objectAtIndex:0];
@@ -51,9 +59,12 @@
     if(!self.isInGame) {
         scene = [MainScene sceneWithSize:skView.frame.size];
         ((MainScene*)scene).c=self;
-    } else {//todo: textureloaders are loading separately!!! fix!
+        ((MainScene*)scene).tl=self.l;
+    } else {
         scene = [GameScene sceneWithSize:CGSizeMake(skView.frame.size.width/2,skView.frame.size.height/2)];
+        ((GameScene*)scene).c=self;
         ((GameScene*)scene).game=self.g;
+        ((GameScene*)scene).tl=self.l;
         self.g=nil;
     }
     scene.scaleMode = SKSceneScaleModeAspectFill;

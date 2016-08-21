@@ -12,4 +12,5 @@
 
 @interface MainScene : SKScene
 @property UIViewController* c;
+@property TextureLoader* tl;
 @end

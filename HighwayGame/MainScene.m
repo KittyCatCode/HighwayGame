@@ -8,7 +8,6 @@
 
 #import "MainScene.h"
 @interface MainScene ()
-@property TextureLoader* tl;
 @end
 @implementation MainScene
 
