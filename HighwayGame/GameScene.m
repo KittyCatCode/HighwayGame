@@ -59,6 +59,7 @@
         self.useId=(int)self.nodes.count;
     } else {
         self.nodes=[NSMutableArray arrayWithArray:self.game.nodes];
+        self.requiredNodes=[NSMutableArray new];
         self.game.nodes=self.nodes;
         [self.nodes enumerateObjectsUsingBlock:^(HighwayNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
             if(node.nodeId+1>self.useId) {
@@ -291,12 +292,20 @@ int gTouchesBeganIn=gNothing;
                 scene.c=self.c;
                 [self.view presentScene:scene transition:[SKTransition revealWithDirection:SKTransitionDirectionRight duration:0.1]];
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save"
-                                                                message:@"You need to save first."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Save?" message:@"Do you want to leave without saving?" preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    self.c.isInGame=false;
+                    MainScene* scene = [MainScene sceneWithSize:CGSizeMake(self.size.width*2, self.size.height*2)];
+                    scene.tl=self.tl;
+                    scene.c=self.c;
+                    [self.view presentScene:scene transition:[SKTransition revealWithDirection:SKTransitionDirectionRight duration:0.1]];
+                }]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }]];
+                [self.c presentViewController:alert animated:YES completion:^{
+                    
+                }];
             }
         }
     }
